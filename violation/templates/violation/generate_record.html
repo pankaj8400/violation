@@ -1,0 +1,185 @@
+{% extends 'violation/base.html' %}
+{% load static %}
+
+{% block title %}Generate Record{% endblock %}
+
+{% block content %}
+    <div class="report-container">
+        <div class="report">
+            <h2 class="h2 text-center">Generate Report</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.as_p }}
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Generate Report</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+{% comment %} {% extends 'violation/base.html' %}
+{% load static %}
+
+{% block title %}Generate Record{% endblock %}
+
+{% block content %}
+    <div class="report">
+        <h2 class="h2 ">Generate Report</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Generate Report</button>
+        </form>
+    </div>
+{% endblock %} {% endcomment %}
+
+
+
+
+
+
+
+
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violation Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Violation Report</h1>
+    </header>
+    
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <h2>Generate Report</h2>
+        <div>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Generate Report</button>
+            </form>
+        </div>
+        {% comment %} <div>
+            <h3>Generate Record by Camera Number</h3>
+            <form method="post" action="{% url 'generate_record' %}">
+                {% csrf_token %}
+                {{ camera_form.as_p }}  <!-- This will render all fields including new range fields -->
+                <button type="submit" name="action" value="camera">Generate Report</button>
+            </form>
+        </div> {% endcomment %}
+    {% comment %} </main>
+
+    <!-- Optional footer section -->
+    <footer>
+        <p>&copy; {{ current_year }} Your Company Name. All rights reserved.</p>
+    </footer>
+</body>
+</html> {% endcomment %}
+
+
+
+{% comment %} <!-- generate_report.html -->
+<h1>Generate Report</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="start_date">Start Date:</label>
+    <input type="date" id="start_date" name="start_date" required>
+
+    <label for="end_date">End Date:</label>
+    <input type="date" id="end_date" name="end_date" required>
+
+    <button type="submit">Generate Report</button>
+</form>
+
+{% if violations %}
+    <h2>Generated Report</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Camera Number</th>
+                <th>Without Jacket</th>
+                <th>Without Helmet</th>
+                <th>Both</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for violation in violations %}
+                <tr>
+                    <td>{{ violation.Date }}</td>
+                    <td>{{ violation.Camera_Number }}</td>
+                    <td>{{ violation.Without_Jacket }}</td>
+                    <td>{{ violation.Without_Helmet }}</td>
+                    <td>{{ violation.Both }}</td>
+                    <td><img src="{{ violation.Image }}" alt="Violation Image" width="50"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <h2>Generate Report</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Generate Report</button>
+            </form>
+    
+            <div class="graph-section mt-4">
+                <h2>Violation Analytics (Counts and Percentages)</h2>
+                <img src="data:image/png;base64,{{ graph_data }}" alt="Violation Graph" class="img-fluid">
+            </div>
+        </main>
+    </div>
+    
+{% endif %} {% endcomment %}

@@ -1,0 +1,88 @@
+/* login.css */
+
+/* Ensure the html and body take up full page height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexbox container to center the content and make it responsive */
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    width: 100%;  /* Full viewport width */
+    background-image: url('../img/safety.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Container for login form */
+.login-container {
+    background: grey;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;       /* Responsive width */
+    max-width: fit-content; /* Maximum width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent overflow */
+    position: relative; 
+    min-width: 30rem;
+}
+
+/* Logo styling */
+.login-logo {
+    width: 20vw;  /* Responsive width based on viewport */
+    height: auto; /* Maintain aspect ratio */
+    max-width: fit-content; /* Maximum width */
+    margin-bottom: 20px;
+}
+
+/* Header styling */
+h3 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center; 
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+    /* For tablets */
+    .main {
+        width: 80%;
+        padding: 0;
+    }
+    .right {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+  
+    .menu, .main, .right {
+        width: 100%;
+    }
+}

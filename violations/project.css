@@ -1,0 +1,252 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body and Container */
+body, html {
+    height: 100%; /* Ensure body and HTML take the full viewport height */
+    /* Removed overflow: hidden to allow scrolling */
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+/* Button Styles */
+button {
+    background-color: #4CAF50; /* Green background for buttons */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #666;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100px; /* Adjust width of sidebar on smaller screens */
+    }
+    .main-content {
+        margin-left: 10px; /* Adjust the margin on smaller screens */
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: white;
+        overflow: visible; /* Allow scrolling when printing */
+    }
+}
+
+
+
+
+/* Container Styles */
+.container-fluid {
+    display: flex;
+    height: 100vh; /* Full height for the container */
+}
+
+.sidebar {
+    height: 100vh;
+    position: fixed; /* Fix the sidebar on the left */
+    top: 0; /* Stick the sidebar to the top of the viewport */
+    left: 0; /* Aligns the sidebar to the left edge of the screen */
+    width: 220px; /* Fixed width for sidebar */
+    background-color: #f8f9fa; /* Light background */
+    padding-top: 20px;
+    border-right: 1px solid #ddd; /* Border on the right side of the sidebar */
+    overflow-y: auto; /* Allow scrolling within the sidebar if content overflows */
+    z-index: 1000; /* Ensure the sidebar stays above main content */
+}
+
+/* Sidebar Link Styles */
+.sidebar .nav-link {
+    color: #333; /* Text color for nav links */
+    padding: 10px 15px; /* Padding for nav links */
+    display: block; /* Block display for links */
+    text-decoration: none; /* Remove underline */
+}
+
+.sidebar .nav-link:hover {
+    background-color: #e9ecef; /* Change background on hover */
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-left: 240px; /* Space for the sidebar */
+    padding: 20px;
+    overflow-y: auto; /* Allow vertical scroll for content */
+    height: calc(100vh - 40px); /* Full height minus some padding */
+    position: relative;
+}
+
+/* General Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Make sure the table prints well */
+@media print {
+    /* Hide the download buttons when printing */
+    button, .btn {
+        display: none;
+    }
+
+    /* Ensure the table takes full width */
+    table {
+        width: 100%;
+    }
+
+    /* Ensure borders are printed */
+    th, td {
+        border: 3px solid black;
+    }
+
+    /* Fix image size for printing */
+    img {
+        max-width: 100px; /* Ensure the images print at a reasonable size */
+        height: auto;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100px; /* Narrow sidebar on small screens */
+    }
+
+    .main-content {
+        margin-left: 120px; /* Adjust main content margin */
+    }
+}
+
+/* Form Styles */
+form {
+    display: flex; /* Use flexbox for form layout */
+    flex-direction: column; /* Stack form elements */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    padding: 10px; /* Padding for input fields */
+    margin: 10px 0; /* Margin for input fields */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+}
+
+
+
+
+/* responsive page style.css */
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Ensure the container doesn't overflow */
+.violations-container {
+    padding: 20px;
+    margin-left: 200px; /* Adjust for sidebar width */
+    background-color: aquamarine;
+    overflow-x: auto;
+}
+
+/* Make images responsive */
+.responsive-img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Sidebar settings */
+.col-sm-2 {
+    background-color: chartreuse;
+    flex: 0 0 200px; /* Sidebar fixed width */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    overflow-y: auto;
+    padding-top: 1rem;
+}
+
+.col-sm-10 {
+    margin-left: 200px;
+    padding: 20px;
+    flex-grow: 1;
+    background-color: aquamarine;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 768px) {
+    .col-sm-2 {
+        flex: 0 0 150px; /* Reduce sidebar width */
+    }
+
+    .col-sm-10 {
+        margin-left: 150px; /* Adjust content margin */
+    }
+
+    .violations-container {
+        margin-left: 150px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .col-sm-2 {
+        flex: 0 0 100px; /* Further reduce sidebar width */
+    }
+
+    .col-sm-10 {
+        margin-left: 100px;
+    }
+
+    .violations-container {
+        margin-left: 100px;
+    }
+
+    .responsive-img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
